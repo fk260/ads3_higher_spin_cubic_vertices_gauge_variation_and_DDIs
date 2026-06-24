@@ -815,7 +815,3 @@ def write_all_powers_out(equation):
     return pull_minus_signs_to_front(write_Y_powers_out(write_Z_powers_out(equation)))
 
 simplified_DDIs = [fully_expand_equation(sub_Z_Dz_pattern(eq)) for eq in simplified_DDIs]
-
-# write out components explicitly to check validity of DDIs
-
-#def replace_Zis(equation):
