@@ -177,17 +177,3 @@ ReducerStageTestSuite[opts]
 
 `CanonicalQ` follows Wolfram naming conventions for Boolean predicates (`NumberQ`, `MatrixQ`, etc.). It means the result has no unresolved `A`, `Comm`, `RawPComm`, `Pmarked`, traces, divergences, boxes, noncanonical `Y'`, or mixed `P.P` structures, and projects only to terminal `y[i]` and `z[i]` contractions.
 
-## Repository hygiene
-
-Generated output folders are intentionally ignored by git. Run scripts create folders in-place so results are easy to inspect with ordinary text tools, for example:
-
-```bash
-find ddi_v1_outputs -type f | sort
-cat ddi_v1_outputs/DDI1_i1_V1_polynomial.txt
-```
-
-For public commits, include source files and notebooks only. Do not commit generated output folders unless you deliberately want to archive a particular run.
-
-## Repository notes
-
-See `PUBLIC_REPO_NOTES.md` for suggested public-repository hygiene and `FILE_MANIFEST.md` for the source files intended for commit.
