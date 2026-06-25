@@ -64,7 +64,7 @@ To run a particular check:
 
 Note that the gauge-variation procedure is intended to be fully general within the symbolic setup used here. The DDI reduction procedure, however, is specialised to the two- and three-derivative vertices considered in the paper.
 
-The code contains a large helper functions for basic symbolic manipulation and replacement rules. These are mostly self-explanatory and are not described individually here. Instead, we list below the core functions that implement the main steps of the {Yi,Zi} basis algorithm, since these are the functions most relevant for reproducing and checking the results of the paper.
+The code contains a large number of helper functions for basic symbolic manipulation and replacement rules. These are mostly self-explanatory and are not described individually here. Instead, we list below the core functions that implement the main steps of the {Yi,Zi} basis algorithm, since these are the functions most relevant for reproducing and checking the results of the paper.
 
 | Function | Role in the algorithm |
 |---|---|
