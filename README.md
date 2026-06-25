@@ -33,6 +33,20 @@ The Mathematica notebooks 3), 4) and Wolfram Language package 5) require Wolfram
 
 This is the main file containing the infrastructure for automating the gauge variation algorithm set out in Section 3.2 of the paper. Note that the procedure is fully generalised and we do not use the specialised gauge variation operator (3.19) in the text - this is instead used in a separate file as a semi-independent check.
 
+Below is a dictionary for the translating the notation used to the paper to the notation used in the code:
+
+| Code notation | Paper notation | Meaning |
+|---|---|---|
+| `Y_i` | $Y_i$ | Basic derivative contraction. |
+| `Z_i` | $Z_i$ | Basic auxiliary-vector contraction. |
+| `P_i` | $\partial_{x_i}$ | Spacetime derivative acting on field $i$. |
+| `U_i` | $\partial_{a_i}$ | Auxiliary-vector derivative acting on field $i$. |
+| `a_i` | $a_i$ | Auxiliary variable for field $i$. |
+| `l` | $\ell$ | AdS radius. |
+| `s_i` | $s_i$ | Spin of field $i$. |
+| `n_i` | $n_i$ | Formal power of $Z_i$. |
+| `D_zi` | $\partial_{Z_i}$ | Derivative with respect to $Z_i$. |
+
 
 
 ### 2) AdS_DDIs_Analysis.py
