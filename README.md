@@ -37,15 +37,22 @@ Below is a dictionary for the translating the notation used to the paper to the 
 
 | Code notation | Paper notation | Meaning |
 |---|---|---|
-| "Y1" | $Y_i$ | Basic derivative contraction. |
-| "Z" | $Z_i$ | Basic auxiliary-vector contraction. |
-| `P_i` | $\partial_{x_i}$ | Spacetime derivative acting on field $i$. |
-| `U_i` | $\partial_{a_i}$ | Auxiliary-vector derivative acting on field $i$. |
-| `a_i` | $a_i$ | Auxiliary variable for field $i$. |
-| `l` | $\ell$ | AdS radius. |
-| `s_i` | $s_i$ | Spin of field $i$. |
-| `n_i` | $n_i$ | Formal power of $Z_i$. |
-| `D_zi` | $\partial_{Z_i}$ | Derivative with respect to $Z_i$. |
+| `P1`, `P2`, `P3` | $\nabla_1$, $\nabla_2$, $\nabla_3$ | Covariant derivatives acting on fields 1, 2, and 3. In the code, index contractions are written explicitly, e.g. `P1_a`, `P1^a`. |
+| `U1`, `U2`, `U3` | $\partial_{a_1}$, $\partial_{a_2}$, $\partial_{a_3}$ | Derivatives with respect to the auxiliary variables of fields 1, 2, and 3. |
+| `a1`, `a2`, `a3` | $a_1$, $a_2$, $a_3$ | Auxiliary variables used in the generating-function description of the fields and gauge parameters. |
+| `Y1` | $y_1 = \partial_{a_1}\cdot\nabla_2$ | Implemented in the code by replacing `Y1` with `U1_a*P2^a`. |
+| `Y2` | $y_2 = \partial_{a_2}\cdot\nabla_3$ | Implemented in the code by replacing `Y2` with `U2_a*P3^a`. |
+| `Y3` | $y_3 = \partial_{a_3}\cdot\nabla_1$ | Implemented in the code by replacing `Y3` with `U3_a*P1^a`. |
+| `Z1` | $z_1 = \partial_{a_2}\cdot\partial_{a_3}$ | Implemented in the code by replacing `Z1` with `U2_a*U3^a`. |
+| `Z2` | $z_2 = \partial_{a_3}\cdot\partial_{a_1}$ | Implemented in the code by replacing `Z2` with `U1_a*U3^a`; the contraction is symmetric. |
+| `Z3` | $z_3 = \partial_{a_1}\cdot\partial_{a_2}$ | Implemented in the code by replacing `Z3` with `U1_a*U2^a`. |
+| `s1`, `s2`, `s3` | $s_1$, $s_2$, $s_3$ | Spins of the three fields. |
+| `l` | $\ell$ | AdS radius. Curvature corrections appear with factors of `1/l^2`. |
+| `n1`, `n2`, `n3` | $n_1$, $n_2$, $n_3$ | Formal powers of `Z1`, `Z2`, `Z3` in the two-derivative vertex sector. In the final spin-dependent expressions these are substituted using the spin labels. |
+| `p1`, `p2`, `p3` | $p_1$, $p_2$, $p_3$ | Formal powers of `Z1`, `Z2`, `Z3` used for the three-derivative vertex sector. |
+| `D_z1`, `D_z2`, `D_z3` | $\partial_{z_1}$, $\partial_{z_2}$, $\partial_{z_3}$ | Differential-operator notation used when rewriting powers such as `n1`, `n2`, `n3` as Euler operators `Z1*D_z1`, `Z2*D_z2`, `Z3*D_z3`. |
+| `m1`, `m2`, `m3` | $m_1$, $m_2$, $m_3$ | Mass-shell/d'Alembertian placeholders appearing in the DDI reduction before imposing the on-shell TT equations. |
+| `A`, `B`, `C` | Ansatz coefficients | Coefficients of lower-derivative AdS correction terms in some test expressions. |
 
 
 
