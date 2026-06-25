@@ -8,6 +8,7 @@ Gauge_Variation.py
 AdS_DDIs_Analysis.py
 Gauge invariance via differential operators.nb
 DDI Check Via Forward Reduction Matching.nb
+AdSDDIReducer.wl
 README.md
 LICENSE
 ```
