@@ -19,7 +19,9 @@ trace removal
 repeat until canonical
 ```
 
-This repository folder intentionally contains no paper/reference DDI comparison layer. It is only the reducer, DDI-output scripts, and user/stage tests.
+as outlined.
+
+This repository folder contains an AdS DDI reducer, DDI-output scripts for a user to run, and tests to inspect how each stage of the algorithm operates.
 
 ## Folder layout
 
