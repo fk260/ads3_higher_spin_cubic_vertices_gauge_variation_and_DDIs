@@ -1,0 +1,17 @@
+# Wolfram / temporary files
+*.mx
+*.wxf
+*.tmp
+*.bak
+*~
+.DS_Store
+
+# Generated reducer outputs
+ddi_v1_outputs/
+ddi_vz_outputs/
+term_stage_outputs/
+*_terminal_capture.txt
+*_capture.txt
+
+# Mathematica notebook autosaves
+*.nb~

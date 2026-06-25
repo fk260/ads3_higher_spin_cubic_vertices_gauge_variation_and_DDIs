@@ -1,0 +1,10 @@
+Notebook[{
+ Cell["AdS DDI reducer: user terms and stage tests", "Title"],
+ Cell["Run the cell below from the root of the ads_ddi_reducer folder. It writes the folder term_stage_outputs/.", "Text"],
+ Cell[BoxData[RowBox[{"SetDirectory", "[", RowBox[{"ParentDirectory", "[", RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "]"}]], "Input"],
+ Cell[BoxData[RowBox[{"Get", "[", "\"terms_and_stage_tests/test_terms.wl\"", "]"}]], "Input"],
+ Cell["Useful interactive examples", "Section"],
+ Cell[BoxData[RowBox[{"Get", "[", "\"package/AdSDDIReducer.wl\"", "]"}]], "Input"],
+ Cell[BoxData[RowBox[{"TermReduce", "[", "\"U3^dU3_dU2^cU1^aP1_aP1_cP1_bP2^b\"", "]"}]], "Input"],
+ Cell[BoxData[RowBox[{"StagePipelineRun", "[", RowBox[{RowBox[{"{", RowBox[{"\"StartCleanup\"", ",", "\"YpBlock\"", ",", "\"ACleanup\"", ",", "\"DivBlock\"", ",", "\"ACleanup\""}], "}"}], ",", "\"U3_aP2^aU1_bP1^bP1_cP2^c\""}], "]"}]], "Input"]
+}]
