@@ -64,17 +64,20 @@ To run a particular check:
 
 Note that the gauge-variation procedure is intended to be fully general within the symbolic setup used here. The DDI reduction procedure, however, is specialised to the two- and three-derivative vertices considered in the paper.
 
-The code also contains several helper functions for basic symbolic manipulation. These are mostly self-explanatory and are not described individually here. Instead, we list below the core functions that implement the main steps of the gauge-variation and DDI-reduction algorithms, since these are the functions most relevant for reproducing and checking the results of the paper.
+The code contains a large helper functions for basic symbolic manipulation and replacement rules. These are mostly self-explanatory and are not described individually here. Instead, we list below the core functions that implement the main steps of the {Yi,Zi} basis algorithm, since these are the functions most relevant for reproducing and checking the results of the paper.
 
-
-| Function | Role in the reduction |
+| Function | Role in the algorithm |
 |---|---|
-| `move_all_a_left(equation)` | Moves explicit auxiliary variables `a1`, `a2`, and `a3` to the left using the relevant commutation rules. Terms with leftmost auxiliary variables are then removed, corresponding to setting the auxiliary variables to zero after differentiation. |
+| `move_all_a_left(equation)` | Moves explicit auxiliary variables `a1`, `a2`, and `a3` to the left using the relevant commutation rules. Terms with leftmost auxiliary variables are then removed, corresponding to setting the auxiliary variables to zero after the vertex has acted on the generating functions. |
 | `remove_traces(equation)` | Removes trace terms, i.e. terms containing contractions that vanish in the transverse-traceless sector. |
-| `pull_all_non_canon_UP_left(equation)` | Rewrites non-canonical contractions of the form `U_i*P_j`, with `i \neq j`, into the canonical `Y_i` structures and divergence terms using integrations by parts and commutator relations. |
+| `pull_all_non_canon_UP_left(equation)` | Rewrites non-canonical contractions of the form `Ui*Pi-1` into the canonical `Y_i` structures and divergence terms using integrations by parts and AdS commutator relations. |
 | `pull_all_Divs_right(equation)` | Moves divergence terms of the form `U_i*P_i` to the right, where they are discarded using the transverse condition. |
-| `pull_all_PiPjs_left(equation)` | Reorders non-canonical derivative contractions `P_i*P_j` and rewrites them in terms of the standard derivative-contraction structures used in the reduction. |
-| `pull_all_Bs_right(equation)` | Moves d'Alembertian/mass-shell terms, represented by `B_i`-type placeholders, to the right so that the on-shell equations can be imposed. |
+| `pull_all_PiPjs_left(equation)` | Reorders non-canonical derivative contractions `P_i*P_j` with i$\neq$j and rewrites them in terms of d'Alembertians using integration by parts. |
+| `pull_all_Bs_right(equation)` | Moves d'Alembertian's, i.e. terms of the form `Pi_a*Pi^a`, to the right so that the on-shell conditions can be imposed. |
+
+These operations are combined in the wrapper function `perform_full_operation(equation)`.
+
+A few example checks are included to illustrate the reliability of these functions. Readers are encouraged to run additional tests if they wish to further verify the intermediate reductions and final outputs.
 
 
 ### 2) `AdS_DDIs_Analysis.py`
