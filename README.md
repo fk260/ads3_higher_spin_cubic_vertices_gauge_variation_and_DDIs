@@ -227,7 +227,7 @@ repeat until canonical
 
 as illustrated in the paper.
 
-This repository folder contains an AdS DDI reducer, `ads_ddi_reducer`; DDI-output scripts for a user to run the reducer locally and reproduce the results seen in the paper, and also a series of tests/examples to illustrate how each stage of the algorithm works.
+This repository folder contains an AdS DDI reducer, `AdSDDIReducer.wl`; DDI-output scripts for a user to run the reducer locally and reproduce the results seen in the paper, and also a series of tests/examples to illustrate how each stage of the algorithm works.
 
 ### Folder layout
 
