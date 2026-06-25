@@ -63,8 +63,9 @@ To run a particular check:
 1. Uncomment the relevant gauge-variation commutator expression assigned to `commutator`.
 2. Uncomment the corresponding lower-derivative ansatz assigned to `z_term_comm`.
 3. Set the `no_deriv` argument of `fully_process_three_deriv_gauge_variation_eq` (currently defined around line 6260) to the number of derivatives, i.e. the number of Y_i factors, in the expression assigned to commutator.
-4. The fully evaluated gauge variation in the {Y_i, Z_i} basis is stored in `full_gauge_variation_equation`.
-5. The gauge variation reduced modulo the DDIs is stored in `final_gauge_variation_equation`.
+4. Run `Gauge_Variation.py`.
+5. The fully evaluated gauge variation in the {Y_i, Z_i} basis is stored in `full_gauge_variation_equation`.
+6. The gauge variation reduced modulo the DDIs is stored in `final_gauge_variation_equation`.
 
 Note that the gauge-variation procedure is intended to be fully general within the symbolic setup used here. The DDI reduction procedure, however, is specialised to the two- and three-derivative vertices considered in the paper.
 
