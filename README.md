@@ -12,3 +12,13 @@ AdSDDIReducer.wl
 README.md
 LICENSE
 ```
+
+# 1) Gauge_Variation.py
+
+# 2) AdS_DDIs_Analysis.py
+
+# 3) Gauge invariance via differential operators.nb
+
+# 4) DDI Check Via Forward Reduction Matching.nb
+
+# 5) AdSDDIReducer.wl
