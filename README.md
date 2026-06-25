@@ -15,7 +15,25 @@ LICENSE
 
 ## Files
 
+### Requirements
+
+The code in files 1) and 2) were written for Python 3. A recent Python 3 installation is recommended. Only packages from the Python standard library are used:
+
+```python
+re
+time
+collections
+fractions
+itertools
+```
+
+The Mathematica notebooks 3), 4) and Wolfram Language package 5) require Wolfram Mathematica.
+
 ### 1) Gauge_Variation.py
+
+This is the main file containing the infrastructure for automating the gauge variation algorithm set out in Section 3.2 of the paper. Note that the procedure is fully generalised and we do not use the specialised gauge variation operator (3.19) in the text - this is instead used in a separate file as a semi-independent check.
+
+
 
 ### 2) AdS_DDIs_Analysis.py
 
