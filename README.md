@@ -182,79 +182,31 @@ In other words, the notebook checks that the compact DDI used in the paper is ge
 
 The notebook is organised around the following functions. Generic utility functions such as `terms`, `termFactors`, and `ncm` are used internally but are not listed separately.
 
-| Object/function                           | Role                                                                                                                                                                         |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `antisymPart`                             | Defines the over-antisymmetrised expression from which the DDI originates.                                                                                                   |
-| `antiExpr`                                | Multiplies `antisymPart` by the additional factors to construct the DDI. This is the starting expression for the forward reduction.                                         |
-| `indicesInMonomial`                       | Extracts the symbolic component indices appearing in a monomial built from `U`, `P`, or `A` factors.                                                                         |
-| `writeComponents`                         | Expands symbolic component indices explicitly by summing over all component assignments.                            |
-| `splitTraceTerms`                         | Splits an expression into trace-free terms and trace terms.                                                                                                                  |
-| `ddiAfterTrace`                           | Stores the expression after the trace terms have been removed.                                                                                                               |
-| `traceDropped`                            | Stores the trace terms removed by `splitTraceTerms`, so that they can later be reintroduced.                                                                                 |
-| `adjacentBoxValue`                        | Gives the mass-shell replacement for contracted derivative pairs of the form `P[i,mu] P[ip1[i],mu]`.                                                                         |
-| `adjacentBoxPairsInTerm`                  | Finds non-d'Alembertian contracted derivative pairs in a monomial.                                                                                                         |
-| `reduceAdjacentBoxPairInTerm`             | Applies one adjacent-box/mass-shell reduction to a monomial and records whether the term changed.                                                                            |
-| `reduceAdjacentBoxPairsStep`              | Applies the adjacent-box reduction term by term to an expression, returning both the reduced expression and the list of changed terms.                                       |
-| `ddiAfterBoxStep1`                        | Stores the expression after the adjacent-box reduction.                                                                                                                      |
-| `boxChangedTermsStep1`                    | Stores the terms changed during the adjacent-box reduction, so that this step can later be reversed.                                                                         |
-| `insertIntegratedPLeft`                   | Inserts an integrated-by-parts derivative to the left of any existing same-field derivative factors, preserving the ordering needed for the later AdS commutator check.      |
-| `nonCanonicalUPPairsInTerm`               | Finds non-canonical contractions of the form `U[i,mu] P[im1[i],mu]`.                                                                                                         |
-| `reduceOneNonCanonicalUPInMonomialLogged` | Performs one non-canonical `U_i P_{i-1}` reduction in a monomial. It also logs the ordered original and reduced forms needed to reverse the integration-by-parts step later. |
-| `reduceOneNonCanonicalUPPass`             | Performs one pass of the non-canonical `U_i P_{i-1}` reduction over an expression.                                                                                           |
-| `reduceNonCanonicalUPStep`                | Repeatedly applies `reduceOneNonCanonicalUPPass` until no non-canonical `U_i P_{i-1}` contractions remain.                                                                   |
-| `ddiAfterUPStep1`                         | Stores the expression after the non-canonical `U_i P_{i-1}` reductions.                                                                                                      |
-| `upChangedTermsStep1`                     | Stores the terms changed during the non-canonical `U_i P_{i-1}` reductions, so that these integration-by-parts steps can later be reversed.                                  |
-| `divPairInTerm`                           | Detects divergence pairs of the form `U[i,mu] P[i,mu]`.                                                                                                                      |
-| `divTermQ`                                | Tests whether a term contains a divergence pair.                                                                                                                             |
-| `formatDivDroppedTerm`                    | Rewrites dropped divergence terms with the divergence derivative placed in the ordered position needed for the reverse check.                                                |
-| `splitDivTerms`                           | Splits an expression into divergence-free terms and divergence terms.                                                                                                        |
-| `ddiAfterDiv`                             | Stores the expression after divergence terms have been removed.                                                                                                              |
-| `divDropped`                              | Stores the divergence terms removed by `splitDivTerms`, so that they can later be reintroduced.                                                                              |
-| `yPairInTerm`                             | Detects canonical `Y_i`-type contractions of the form `U[i,mu] P[ip1[i],mu]`.                                                                                                |
-| `zPairInTerm`                             | Detects canonical `Z_i`-type contractions of the form `U[im1[i],mu] U[ip1[i],mu]`.                                                                                           |
-| `reduceOneYZInMonomial`                   | Replaces one detected canonical contraction by either `y[i]` or `z[i]`.                                                                                                      |
-| `reduceOneYZInExpr`                       | Applies `reduceOneYZInMonomial` term by term to an expression.                                                                                                               |
-| `canonicalYZForm`                         | Repeatedly applies the `Y_i`/`Z_i` replacements until the expression is written in the canonical `{y[i], z[i]}` basis.                                                       |
-| `ddiCanonicalYZ`                          | Stores the compact `{y[i], z[i]}` form obtained at the end of the forward reduction.                                                                                         |
-| `ip1`, `im1`                              | Implement cyclic index shifts, corresponding to `i+1` and `i-1` modulo 3.                                                                                                    |
-| `Gcomm`                                   | Defines the commuting expression `y[1] z[1] + y[2] z[2] + y[3] z[3]`.                                                                                                        |
-| `ddiLHScomm`                              | Defines the flat-space part of the compact DDI in commuting `{y[i], z[i]}` notation.                                                                                         |
-| `ddiRHScomm`                              | Defines the AdS correction term in the compact DDI.                                                                                                                          |
-| `yOp`                                     | Defines the ordered operator version of `y[i]`.                                                                                                                              |
-| `zOp`                                     | Defines the ordered operator version of `z[i]`.                                                                                                                              |
-| `Gop`                                     | Defines the ordered operator version of `Gcomm`.                                                                                                                             |
-| `ddiLHSop`                                | Defines the ordered operator version of the DDI left-hand side.                                                                                                              |
-| `ncExpand`                                | Expands non-commutative products, distributes over sums, and pulls scalar factors outside non-commutative products.                                                          |
-| `partialProduct`                          | Converts a non-commutative product into a partially commuting product, keeping non-commutative ordering only among same-field covariant derivatives.                         |
-| `removeNCExceptSameP`                     | Removes non-commutative ordering except between covariant derivatives with the same field label, since these are the only remaining non-commuting derivative products.       |
-| `lhs1FullNC`                              | Stores the fully expanded non-commutative operator expression for the DDI left-hand side.                                                                                    |
-| `lhs1PartiallyCommuted`                   | Stores the expression after all non-commutative ordering has been removed except for same-field derivative products.                                                         |
-| `ExpTrDropped`                            | Stores the component-expanded trace terms dropped during the forward reduction.                                                                                              |
-| `ExpDivDropped`                           | Stores the component-expanded divergence terms dropped during the forward reduction.                                                                                         |
-| `lhs1RestoredDivTr`                       | Stores the expression obtained after reintroducing the dropped trace and divergence terms.                                                                                   |
-| `reverseReplacementData`                  | Reverses a logged reduction step by subtracting the reduced terms and adding back the original terms. This is used to undo the integration-by-parts and box reductions.      |
-| `restoredUPIBP`                           | Stores the expression after reversing the non-canonical `U_i P_{i-1}` integration-by-parts reductions.                                                                       |
-| `restoredBoxIBP`                          | Stores the expression after reversing the adjacent-box reductions.                                                                                                           |
-| `componentRank`                           | Specifies the fixed component ordering used when ordering same-field derivative products.                                                                                    |
-| `badPairQ`                                | Tests whether a pair of same-field derivative operators is out of the chosen canonical order.                                                                                |
-| `swapOnceInNCBlock`                       | Swaps one out-of-order same-field derivative pair and introduces the corresponding `CommP` commutator term.                                                                  |
-| `orderNCOnce`                             | Performs one ordering pass over non-commutative derivative products.                                                                                                         |
-| `orderNCFixed`                            | Repeatedly applies `orderNCOnce` until all same-field derivative products are in the chosen canonical order.                                                                 |
-| `badNCPairs`                              | Diagnostic function that lists any same-field derivative pairs still out of order.                                                                                           |
-| `RestoredDDIOrdered`                      | Stores the restored DDI expression after the same-field derivative products have been ordered.                                                                               |
-| `moveMatchingUsLeftOfAInTerm`             | Moves auxiliary derivatives matching an `A[i,a]` factor to the left within a single term, preparing the expression for the action of `A` on the implicit vertex.             |
-| `moveMatchingUsLeftOfA`                   | Applies `moveMatchingUsLeftOfAInTerm` term by term to an expression.                                                                                                         |
-| `replaceCommP`                            | Replaces same-field derivative commutators `CommP[i,a,b]` by the corresponding AdS curvature terms involving `A[i,a]` and `U[i,b]`.                                          |
-| `aOnV`                                    | Encodes the action of an auxiliary variable `A[i,mu]` on the implicit function `V[z]`.                                                                                       |
-| `normalOrderABlockOnce`                   | Performs one step of moving an `A` factor left through a non-commutative block, including the derivative term generated when `A` passes a factor depending on `U`.           |
-| `normalOrderA`                            | Repeatedly applies `normalOrderABlockOnce` until the `A` factors are in the required normal order.                                                                           |
-| `replaceLeftAByVAction`                   | Replaces leftmost `A` factors by their action on the implicit function `V[z]`, using `aOnV`.                                                                                 |
-| `eliminateA`                              | Combines `normalOrderA` and `replaceLeftAByVAction` to remove the explicit `A` factors from the expression.                                                                  |
-| `DerivCommFullDDILHS`                     | Stores the result after evaluating the derivative commutator contributions and eliminating the explicit `A` factors.                                                         |
-| `DDILHSminusRHS`                          | Stores the final comparison between the restored DDI left-hand side and the compact AdS correction term.                                                                     |
-| `trRules`                                 | Contains the final trace-reduction substitutions used in the component-expanded check.                                                                                       |
-| `reduceTr`                                | Applies the final trace-reduction rules to an expression.                                                                                                                    |
-| `LHSminusRHSTrReduce`                     | Stores the final trace-reduced comparison. This expression should vanish.                                                                                                    |
+
+In other words, the notebook checks that the compact DDI used in the paper is genuinely equivalent to the original over-antisymmetrised expression, up to the reductions allowed in the on-shell transverse-traceless sector. It does this by first recording the trace, divergence, box, and integration-by-parts terms removed or modified during the forward reduction, and then reversing these steps starting from the reduced DDI expression.
+
+The notebook is organised around the following core objects and functions.
+
+| Object/function(s) | Role |
+|---|---|
+| `antisymPart`, `antiExpr` | Define the original over-antisymmetrised expression and the DDI expression to be reduced. |
+| `writeComponents` | Expands the expression into explicit component form, allowing the vanishing of the over-antisymmetrised expression to be checked directly. |
+| `splitTraceTerms`, `traceDropped`, `ddiAfterTrace` | Separate and store trace terms, which are dropped in the transverse-traceless reduction. |
+| `reduceAdjacentBoxPairsStep`, `boxChangedTermsStep1`, `ddiAfterBoxStep1` | Apply and record the adjacent-box/mass-shell reductions. |
+| `reduceNonCanonicalUPStep`, `upChangedTermsStep1`, `ddiAfterUPStep1` | Apply and record the integration-by-parts reductions of non-canonical `U_i P_{i-1}` contractions. |
+| `splitDivTerms`, `divDropped`, `ddiAfterDiv` | Separate and store divergence terms, which are dropped using the transverse condition. |
+| `canonicalYZForm`, `ddiCanonicalYZ` | Rewrite the remaining expression into the compact canonical `{y[i], z[i]}` basis. |
+| `ddiLHScomm`, `ddiRHScomm` | Define the compact reduced DDI expression and its AdS correction in commuting `{y[i], z[i]}` notation. |
+| `ddiLHSop`, `ncExpand`, `removeNCExceptSameP` | Convert the compact DDI into an ordered operator expression while retaining the non-commutativity of same-field covariant derivatives. |
+| `reverseReplacementData`, `restoredUPIBP`, `restoredBoxIBP` | Reintroduce the terms that were changed during the integration-by-parts and box-reduction steps. |
+| `orderNCFixed` | Orders the remaining same-field derivative products and introduces explicit commutator terms where necessary. |
+| `replaceCommP` | Replaces the derivative commutators by the corresponding AdS curvature terms. |
+| `eliminateA` | Eliminates the explicit auxiliary-variable factors generated by the commutator replacement. |
+| `DerivCommFullDDILHS` | Stores the fully restored and commutator-corrected DDI left-hand side. |
+| `DDILHSminusRHS` | Stores the difference between the restored left-hand side and the compact AdS correction term. |
+| `reduceTr`, `LHSminusRHSTrReduce` | Applies the final trace reduction. The final expression `LHSminusRHSTrReduce` should vanish. |
+
+
 
 The workflow is as follows. The notebook begins with the over-antisymmetrised expression `antisymPart` and forms the DDI starting expression `antiExpr`. It then expands symbolic component indices using `writeComponents`, providing a direct component-level check that the over-antisymmetrised expression vanishes.
 
