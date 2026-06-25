@@ -27,7 +27,11 @@ fractions
 itertools
 ```
 
-The Mathematica notebooks 3), 4) and Wolfram Language package 5) require Wolfram Mathematica.
+The Mathematica notebooks 3), 4) require Wolfram Mathematica. The Wolfram Language package 5) was developed in Wolfram Language 14.x. Check your installation with:
+
+```bash
+wolframscript -code 'Print[$Version]'
+```
 
 ### 1) `Gauge_Variation.py`
 
@@ -149,17 +153,6 @@ ads_ddi_reducer/
   run_ddis_v1.sh
   run_ddis_vz.sh
   run_terms_and_stage_tests.sh
-```
-
-### Requirements
-
-- WolframScript or Mathematica/Wolfram Language.
-- The scripts were developed against Wolfram Language 14.x.
-
-Check your installation with:
-
-```bash
-wolframscript -code 'Print[$Version]'
 ```
 
 ### Running the reducer outputs
