@@ -390,10 +390,8 @@ If you use this repository, please cite both the accompanying paper and this cod
 
 Questions about the code, reproducibility, or the calculations in the accompanying paper can be directed to:
 
-**Freddie King**
-`fk260@sussex.ac.uk`
+**Freddie King** `fk260@sussex.ac.uk`
 
-**Taylor Pomfret**
-`pomfret@mpa-garching.mpg.de`
+**Taylor Pomfret** `pomfret@mpa-garching.mpg.de`
 
 Please include enough detail to identify the relevant part of the repository, such as the file name, function name, notebook cell, or expression being checked.
