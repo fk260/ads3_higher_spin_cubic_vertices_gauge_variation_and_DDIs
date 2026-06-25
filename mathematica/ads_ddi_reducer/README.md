@@ -1,78 +1,6 @@
 # Ordered AdS3 DDI Reducer
 
-This folder contains a Wolfram Language implementation of an ordered-operator reducer for three-dimensional AdS dimension-dependent identities (DDIs) acting on three higher-spin fields.
-
-The core reducer works with ordered noncommuting operators `U[i, idx]`, `P[i, idx]`, and curvature-generated `A[i, idx]`. It reduces raw antisymmetrised DDI expressions through the pipeline
-
-```text
-A cleanup
-trace removal
-Y' reductions
-A cleanup
-Div reductions
-A cleanup
-P.P reductions
-A cleanup
-Box reductions
-A cleanup
-trace removal
-repeat until canonical
-```
-
-as outlined.
-
-This repository folder contains an AdS DDI reducer, DDI-output scripts for a user to run, and tests to inspect how each stage of the algorithm operates.
-
-## Folder layout
-
-```text
-ads_ddi_reducer/
-  package/
-    AdSDDIReducer.wl
-
-  ddis_v1/
-    run_ddis_v1.wl
-    run_ddis_v1.sh
-
-  ddis_vz/
-    run_ddis_vz.wl
-    run_ddis_vz.sh
-
-  terms_and_stage_tests/
-    test_terms.wl
-    test_terms.nb
-    run_terms_and_stage_tests.sh
-
-  helpers/
-    run_ddis_v1.sh
-    run_ddis_vz.sh
-    run_terms_and_stage_tests.sh
-
-  run_ddis_v1.sh
-  run_ddis_vz.sh
-  run_terms_and_stage_tests.sh
-```
-
-## Requirements
-
-- WolframScript or Mathematica/Wolfram Language.
-- The scripts were developed against Wolfram Language 14.x.
-
-Check your installation with:
-
-```bash
-wolframscript -code 'Print[$Version]'
-```
-
-## Running the reducer outputs
-
-From this folder:
-
-```bash
-bash run_ddis_v1.sh
-```
-
-This computes `DDI1`--`DDI10` for `V = 1` using only the sThis package can be found in the folder `ads_ddi_reducer`, whose goal is to perform AdS reduction in Mathemtica. The folder itself contains a Wolfram Language implementation of an ordered-operator reducer for three-dimensional AdS dimension-dependent identities (DDIs) acting on three higher-spin fields.
+This is the folder `ads_ddi_reducer`, whose goal is to perform AdS reduction in Mathemtica. The folder itself contains a Wolfram Language implementation of an ordered-operator reducer for three-dimensional AdS dimension-dependent identities (DDIs) acting on three higher-spin fields.
 
 The core reducer works with ordered noncommuting derivative operators `P[i, idx]`, `U[i, idx]`, and curvature-generated `A[i, idx]`. It reduces raw antisymmetrised DDI expressions through the pipeline
 
@@ -93,7 +21,7 @@ repeat until canonical
 
 as illustrated in the paper.
 
-This repository folder contains an AdS DDI reducer, `ads_ddi_reducer`; DDI-output scripts for a user to run the reducer locally and reproduce the results seen in the paper, and also a series of tests/examples to illustrate how each stage of the algorithm works.
+This folder contains an AdS DDI reducer, `ads_ddi_reducer`; DDI-output scripts for a user to run the reducer locally and reproduce the results seen in the paper, and also a series of tests/examples to illustrate how each stage of the algorithm works.
 
 ## Folder layout
 
