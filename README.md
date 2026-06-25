@@ -168,7 +168,11 @@ The notebook makes use of the following:
 | `ruleYsqYYAll`      | The DDI reduction rules used for the three-derivative-sector gauge variation.                              |
 | `dV3DDIReduced`     | The final DDI-reduced form of the three-derivative gauge variation.                                        |
 
+The notebook first applies `AdSGaugeOp1` to the two-derivative ansatz `V2`, producing `dV2`. After applying `miRules` and `nRules`, the result is separated into `dV23yPart` and `dV21yPart`, reduced using `ruleYcubedAll` and `ruleYsqY`, and stored in the final form `dV2DDIreduced`.
 
+The same procedure is then repeated for the three-derivative ansatz `V3`. The gauge variation `dV3` is simplified using `miRules` and `pRules`, separated into `dV34yPart`, `dV32ySimplif`, and `dV30ySimplif`, and then reduced using `ruleYsqYYAll`. The final reduced expression is stored in `dV3DDIReduced`.
+
+These reduced expressions are then used either to verify the lower-derivative coefficients or to solve for them directly. The resulting coefficients agree with those obtained in `Gauge_Variation.py`.
 
 ### 4) `DDI Check Via Forward Reduction Matching.nb`
 
