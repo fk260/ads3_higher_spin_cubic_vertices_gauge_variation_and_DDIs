@@ -138,6 +138,8 @@ Since this file imports objects from Gauge_Variation.py, running it may also exe
 
 ### 3) `Gauge invariance via differential operators.nb`
 
+This file implements 
+
 ### 4) `DDI Check Via Forward Reduction Matching.nb`
 
 ### 5) `AdSDDIReducer.wl`
