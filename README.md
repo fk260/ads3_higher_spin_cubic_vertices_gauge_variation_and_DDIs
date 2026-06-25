@@ -13,12 +13,14 @@ README.md
 LICENSE
 ```
 
-# 1) Gauge_Variation.py
+## Files
 
-# 2) AdS_DDIs_Analysis.py
+### 1) Gauge_Variation.py
 
-# 3) Gauge invariance via differential operators.nb
+### 2) AdS_DDIs_Analysis.py
 
-# 4) DDI Check Via Forward Reduction Matching.nb
+### 3) Gauge invariance via differential operators.nb
 
-# 5) AdSDDIReducer.wl
+### 4) DDI Check Via Forward Reduction Matching.nb
+
+### 5) AdSDDIReducer.wl
