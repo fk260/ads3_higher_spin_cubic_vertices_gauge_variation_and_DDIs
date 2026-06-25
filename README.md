@@ -82,8 +82,47 @@ The code contains a large number of helper functions for basic symbolic manipula
 
 These operations are combined in the wrapper function `perform_full_operation(equation)`.
 
-A few example checks are included to illustrate the reliability of these functions. Readers are encouraged to run additional tests if they wish to further verify the intermediate reductions and final outputs.
+A few example checks are included here to illustrate the use of these functions. Readers are encouraged to run additional tests if they wish to further verify the intermediate reductions and final outputs.
 
+### Example checks:
+
+Example 1:
+
+```python
+move_all_a_left('U1_w*P2^w*U1_x*P2^x*a1_a*P1^a')
+```
+
+returns
+
+```python
+'U1_w*P2^w*P2_a*P1^a + P2_a*P2^x*U1_x*P1^a'
+```
+
+Example 2:
+
+```python
+pull_all_non_canon_UP_left('U3_b*P3^b*U1_a*P3^a*U2_c*P3^c')
+```
+
+returns
+
+```python
+'(1/l^2)*U2^a*U1_a*U3_b*P3^b + -(1/l^2)*U2^b*U1_a*U3_b*P3^a + -d*(1/l^2)*U2_c*U1_a*U3^a*P3^c + (1/l^2)*U2_c*U1_a*U3^a*P3^c + -U2_c*U1_a*U3_b*P2^a*P3^b*P3^c + -U2_c*U1_a*U3_b*P1^a*P3^b*P3^c'
+```
+
+Example 3:
+
+```python
+pull_all_PiPjs_left('U2_c*U3^c*U2_a*P3^a*P3_b*P2^b')
+```
+
+returns
+
+```python
+'-(1/l^2)*U2_a*U2^a*U3_b*P2^b + (1/l^2)*U2_a*U2_b*U3^a*P2^b + (1/2)*U2_a*U3^c*U2_c*P1_b*P1^b*P3^a + -(1/2)*U2_a*U3^c*U2_c*P2_b*P2^b*P3^a + -(1/2)*U2_a*U3^c*U2_c*P3_b*P3^b*P3^a'
+```
+
+One can verify the accuracy of these outputs using the commutator relations listed in Appendix A of the paper.
 
 ### 2) `AdS_DDIs_Analysis.py`
 
