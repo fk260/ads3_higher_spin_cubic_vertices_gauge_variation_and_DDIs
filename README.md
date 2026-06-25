@@ -44,7 +44,7 @@ Below is a dictionary for the translating the notation used to the paper to the 
 | `Y2` | $y_2 = \partial_{a_2}\cdot\nabla_3$ | Implemented in the code by replacing `Y2` with e.g. `U2_a*P3^a`. |
 | `Y3` | $y_3 = \partial_{a_3}\cdot\nabla_1$ | Implemented in the code by replacing `Y3` with e.g. `U3_a*P1^a`. |
 | `Z1` | $z_1 = \partial_{a_2}\cdot\partial_{a_3}$ | Implemented in the code by replacing `Z1` with e.g. `U2_a*U3^a`. |
-| `Z2` | $z_2 = \partial_{a_3}\cdot\partial_{a_1}$ | Implemented in the code by replacing `Z2` with e.g. `U1_a*U3^a`; the contraction is symmetric. |
+| `Z2` | $z_2 = \partial_{a_3}\cdot\partial_{a_1}$ | Implemented in the code by replacing `Z2` with e.g. `U1_a*U3^a` |
 | `Z3` | $z_3 = \partial_{a_1}\cdot\partial_{a_2}$ | Implemented in the code by replacing `Z3` with e.g. `U1_a*U2^a`. |
 | `s1`, `s2`, `s3` | $s_1$, $s_2$, $s_3$ | Spins of the three fields. |
 | `l` | $\ell$ | AdS radius. Curvature corrections appear with factors of `1/l^2`. |
