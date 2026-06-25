@@ -390,7 +390,7 @@ If you use this repository, please cite both the accompanying paper and this cod
 
 Questions about the code, reproducibility, or the calculations in the accompanying paper can be directed to:
 
-**Freddie King**  
+**Freddie King**
 `fk260@sussex.ac.uk`
 
 **Taylor Pomfret**
