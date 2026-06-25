@@ -39,7 +39,7 @@ Below is a dictionary for the translating the notation used to the paper to the 
 |---|---|---|
 | `P1`, `P2`, `P3` | $\nabla_1$, $\nabla_2$, $\nabla_3$ | Covariant derivatives acting on fields 1, 2, and 3. In the code, index contractions are written explicitly, e.g. `P1_a`, `P1^a`. |
 | `U1`, `U2`, `U3` | $\partial_{a_1}$, $\partial_{a_2}$, $\partial_{a_3}$ | Derivatives with respect to the auxiliary variables of fields 1, 2, and 3. |
-| `a1`, `a2`, `a3` | $a_1$, $a_2$, $a_3$ | Auxiliary variables used in the generating-function description of the fields and gauge parameters, see equation (). |
+| `a1`, `a2`, `a3` | $a_1$, $a_2$, $a_3$ | Auxiliary variables used in the generating-function description of the fields and gauge parameters, see e.g. equation (2.12). |
 | `Y1` | $y_1 = \partial_{a_1}\cdot\nabla_2$ | Implemented in the code by replacing `Y1` with e.g. `U1_a*P2^a`. |
 | `Y2` | $y_2 = \partial_{a_2}\cdot\nabla_3$ | Implemented in the code by replacing `Y2` with e.g. `U2_a*P3^a`. |
 | `Y3` | $y_3 = \partial_{a_3}\cdot\nabla_1$ | Implemented in the code by replacing `Y3` with e.g. `U3_a*P1^a`. |
