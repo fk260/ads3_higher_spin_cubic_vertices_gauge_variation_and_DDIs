@@ -378,8 +378,8 @@ If you use this repository, please cite both the accompanying paper and this cod
 
 ```bibtex
 @software{KingPomfretCode2026,
-  author       = {King, Freddie},
-  title        = {Code for Metric-like Cubic Vertices for Massless Bosonic Higher-Spin Fields in AdS3},
+  author       = {King, Freddie and Pomfret,Taylor},
+  title        = {Accompanying code for the paper "Metric-like Cubic Vertices for Massless Bosonic Higher-Spin Fields in AdS3"},
   year         = {2026},
   version      = {1.0.0},
   url          = {https://github.com/fk260/ads3_higher_spin_cubic_vertices_gauge_variation_and_DDIs}
