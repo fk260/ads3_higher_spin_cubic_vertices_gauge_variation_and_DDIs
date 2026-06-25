@@ -138,7 +138,37 @@ Since this file imports objects from Gauge_Variation.py, running it may also exe
 
 ### 3) `Gauge invariance via differential operators.nb`
 
-This file implements the differential formulations of the gauge variation operator (3.19) and the DDIs (B.1-B.10) in the paper as a semi-independent check of the gauge invariance of the two- and three- derivative cubic vertices.
+This Mathematica notebook provides a semi-independent check of the gauge-invariance conditions using the specialised differential-operator form of the gauge variation given in equation (3.19) of the paper, as well as the differential-operator forms of the DDIs (B.1-B.10). Unlike Gauge_Variation.py, this notebook does not build the gauge variation by explicitly commuting the underlying Ui, Pi, and ai operators.
+
+The notebook makes use of the following:
+
+| Object/function     | Role                                                                                                       |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `dy1`, `dy2`, `dy3` | Derivative operators with respect to `y1`, `y2`, and `y3`.                                                 |
+| `dz1`, `dz2`, `dz3` | Derivative operators with respect to `z1`, `z2`, and `z3`.                                                 |
+| `AdSGaugeOp1`       | The specialised AdS gauge-variation operator corresponding to equation (3.19) of the paper.                |
+| `V2flat`            | The flat-space part of the two-derivative vertex.                                                          |
+| `V2ads`             | The lower-derivative AdS correction ansatz for the two-derivative vertex.                                  |
+| `V2`                | The full two-derivative ansatz, including both `V2flat` and `V2ads`.                                       |
+| `dV2`               | The gauge variation of the two-derivative ansatz.                                                          |
+| `miRules`           | The mass-shell substitution rules for the `m_i` placeholders.                                              |
+| `nRules`            | The substitution rules relating the formal powers `n_i` to the spin labels in the two-derivative sector.   |
+| `dV23yPart`         | The three-derivative part of the two-derivative gauge variation.                                           |
+| `dV21yPart`         | The one-derivative part of the two-derivative gauge variation.                                             |
+| `ruleYcubedAll`     | The DDI reduction rules used for cubic expressions in the `Y_i`.                                           |
+| `ruleYsqY`          | The DDI reduction rules used for the remaining two-derivative-sector terms.                                |
+| `dV2DDIs`           | The two-derivative gauge variation after the relevant DDI substitutions have been prepared.                |
+| `dV2DDIreduced`     | The final DDI-reduced form of the two-derivative gauge variation.                                          |
+| `V3`                | The full three-derivative ansatz, including its lower-derivative AdS correction terms.                     |
+| `dV3`               | The gauge variation of the three-derivative ansatz.                                                        |
+| `pRules`            | The substitution rules relating the formal powers `p_i` to the spin labels in the three-derivative sector. |
+| `dV34yPart`         | The four-derivative part of the three-derivative gauge variation.                                          |
+| `dV32ySimplif`      | The simplified two-derivative part of the three-derivative gauge variation.                                |
+| `dV30ySimplif`      | The simplified zero-derivative part of the three-derivative gauge variation.                               |
+| `ruleYsqYYAll`      | The DDI reduction rules used for the three-derivative-sector gauge variation.                              |
+| `dV3DDIReduced`     | The final DDI-reduced form of the three-derivative gauge variation.                                        |
+
+
 
 ### 4) `DDI Check Via Forward Reduction Matching.nb`
 
