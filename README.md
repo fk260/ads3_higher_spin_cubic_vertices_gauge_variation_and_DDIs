@@ -176,11 +176,11 @@ These reduced expressions are then used either to verify the lower-derivative co
 
 ### 4) `DDI Check Via Forward Reduction Matching.nb`
 
-This Mathematica notebook provides an explicit forward-reduction check of the AdS3 DDI used in the paper. The purpose is to track the terms that are dropped or modified when the over-antisymmetrised expression is reduced in the transverse-traceless, on-shell basis, and then to systematically reintroduce those terms in order to make the vanishing of the original DDI expression manifest.
+This Mathematica notebook provides an alternative check of a two-derivative DDI used in the paper. The purpose is to track the terms that are dropped or modified when the over-antisymmetrised expression is reduced in the transverse-traceless, on-shell basis, and then to systematically reintroduce those terms in order to make the vanishing of the original DDI expression manifest.
 
 In other words, the notebook checks that the compact DDI used in the paper is genuinely equivalent to the original over-antisymmetrised expression, up to the reductions allowed in the on-shell transverse-traceless sector. It does this by first recording the trace, divergence, box, and integration-by-parts terms removed or modified during the forward reduction, and then reversing these steps starting from the reduced DDI expression.
 
-The notebook is organised around the following user-defined objects and functions. Generic utility functions such as `terms`, `termFactors`, and `ncm` are used internally but are not listed separately.
+The notebook is organised around the following functions. Generic utility functions such as `terms`, `termFactors`, and `ncm` are used internally but are not listed separately.
 
 | Object/function                           | Role                                                                                                                                                                         |
 | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
