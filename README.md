@@ -138,7 +138,7 @@ Since this file imports objects from Gauge_Variation.py, running it may also exe
 
 ### 3) `Gauge invariance via differential operators.nb`
 
-This file implements 
+This file implements the differential formulations of the gauge variation operator (3.19) and the DDIs (B.1-B.10) in the paper as a semi-independent check of the gauge invariance of the two- and three- derivative cubic vertices.
 
 ### 4) `DDI Check Via Forward Reduction Matching.nb`
 
