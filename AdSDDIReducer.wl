@@ -19,21 +19,32 @@ PSlot::usage = "PSlot[i] is an unindexed raw DDI slot that becomes P[i, idx] aft
 Uop::usage = "Uop[i] is an alias for USlot[i].";
 Pop::usage = "Pop[i] is an alias for PSlot[i].";
 
-ZVertex::usage = "ZVertex[{n1,n2,n3}] returns ordered U-operator factors for z[1]^n1 z[2]^n2 z[3]^n3.";
+ZVertex::usage = "ZVertex[{n1,n2,n3}] returns ordered U-operator factors for z[1]^n1 z[2]^n2 z[3]^n3. Integer powers expand explicitly; symbolic powers are represented by ZPow and handled by Leibniz rules during A-cleanup.";
+ZPow::usage = "ZPow[i,n] is an internal symbolic block representing z[i]^n=(U[i+1].U[i-1])^n. It is acted on by A-cleanup through a Leibniz rule.";
 MakeDDI::usage = "MakeDDI[lowerSlots, upperSlots, n] antisymmetrises the four lower slots into 24 signed terms, appends the upper slots and z^n vertex, and returns a list of Term[c, ops].";
 MakeDDIOrdered::usage = "MakeDDIOrdered[lowerSlots, upperSlots, n, order] gives explicit control of the raw eight-factor ordering.";
 DDIOrderings::usage = "DDIOrderings[] lists available raw eight-factor orderings.";
-B1Raw::usage = "B1Raw[i,{n1,n2,n3}] gives the raw Appendix-B.1-style four-index antisymmetrisation; use {0,0,0} for V=1.";
-B2Raw::usage = "B2Raw[i,{n1,n2,n3}] gives the raw Appendix-B.2-style four-index antisymmetrisation; use {0,0,0} for V=1.";
-B3Raw::usage = "B3Raw[i,{n1,n2,n3}] gives the raw three-derivative Appendix-B.3-style antisymmetrisation y_i y_{i-1}(G-y_i z_i); use {0,0,0} for V=1.";
-B4Raw::usage = "B4Raw[i,{n1,n2,n3}] gives the raw three-derivative Appendix-B.4-style antisymmetrisation y_i y_{i+1}(G-y_i z_i); use {0,0,0} for V=1.";
-B5Raw::usage = "B5Raw[i,{n1,n2,n3}] gives the raw three-derivative Appendix-B.5-style antisymmetrisation y_{i-1}(G-y_i z_i)^2; use {0,0,0} for V=1.";
+DDI1Raw::usage = "DDI1Raw[i,{n1,n2,n3}] gives raw DDI 1; use {0,0,0} for V=1.";
+B1Raw::usage = "B1Raw is an alias for DDI1Raw.";
+DDI2Raw::usage = "DDI2Raw[i,{n1,n2,n3}] gives raw DDI 2; use {0,0,0} for V=1.";
+B2Raw::usage = "B2Raw is an alias for DDI2Raw.";
+DDI3Raw::usage = "DDI3Raw[i,{n1,n2,n3}] gives raw DDI 3; use {0,0,0} for V=1.";
+B3Raw::usage = "B3Raw is an alias for DDI3Raw.";
+DDI4Raw::usage = "DDI4Raw[i,{n1,n2,n3}] gives raw DDI 4; use {0,0,0} for V=1.";
+B4Raw::usage = "B4Raw is an alias for DDI4Raw.";
+DDI5Raw::usage = "DDI5Raw[i,{n1,n2,n3}] gives raw DDI 5; use {0,0,0} for V=1.";
+B5Raw::usage = "B5Raw is an alias for DDI5Raw.";
 ThreeDerivativeDDIRaws::usage = "ThreeDerivativeDDIRaws[i,{0,0,0}] returns an association of the three V=1 three-derivative raw DDIs B3, B4 and B5.";
-B6Raw::usage = "B6Raw[i,{n1,n2,n3}] gives the raw four-derivative Appendix-B.6-style antisymmetrisation y_i^2 y_{i-1} y_{i+1}; use {0,0,0} for V=1.";
-B7Raw::usage = "B7Raw[i,{n1,n2,n3}] gives the raw four-derivative Appendix-B.7-style antisymmetrisation y_i^2 y_{i+1}^2; use {0,0,0} for V=1.";
-B8Raw::usage = "B8Raw[i,{n1,n2,n3}] gives the raw four-derivative Appendix-B.8-style antisymmetrisation y_i y_{i-1}^2 (G-y_i z_i); use {0,0,0} for V=1.";
-B9Raw::usage = "B9Raw[i,{n1,n2,n3}] gives the raw four-derivative Appendix-B.9-style antisymmetrisation y_i y_{i+1}^2 (G-y_i z_i); use {0,0,0} for V=1.";
-B10Raw::usage = "B10Raw[i,{n1,n2,n3}] gives the raw four-derivative Appendix-B.10-style antisymmetrisation y_{i+1}^2 (G-y_i z_i)^2; use {0,0,0} for V=1.";
+DDI6Raw::usage = "DDI6Raw[i,{n1,n2,n3}] gives raw DDI 6; use {0,0,0} for V=1.";
+B6Raw::usage = "B6Raw is an alias for DDI6Raw.";
+DDI7Raw::usage = "DDI7Raw[i,{n1,n2,n3}] gives raw DDI 7; use {0,0,0} for V=1.";
+B7Raw::usage = "B7Raw is an alias for DDI7Raw.";
+DDI8Raw::usage = "DDI8Raw[i,{n1,n2,n3}] gives raw DDI 8; use {0,0,0} for V=1.";
+B8Raw::usage = "B8Raw is an alias for DDI8Raw.";
+DDI9Raw::usage = "DDI9Raw[i,{n1,n2,n3}] gives raw DDI 9; use {0,0,0} for V=1.";
+B9Raw::usage = "B9Raw is an alias for DDI9Raw.";
+DDI10Raw::usage = "DDI10Raw[i,{n1,n2,n3}] gives raw DDI 10; use {0,0,0} for V=1.";
+B10Raw::usage = "B10Raw is an alias for DDI10Raw.";
 FourDerivativeDDIRaws::usage = "FourDerivativeDDIRaws[i,{0,0,0}] returns an association of the five V=1 four-derivative raw DDIs B6--B10.";
 AppendYToRaw::usage = "AppendYToRaw[raw,j] appends the canonical ordered y[j]=U_j.P_{j+1} factors to every raw term; used for product DDI representatives.";
 
@@ -41,7 +52,7 @@ CleanA::usage = "CleanA[expr] resolves all explicit A_i factors by moving them l
 RemoveTraces::usage = "RemoveTraces[expr] drops terms containing genuine same-field auxiliary traces U_i.U_i.";
 ExpandCommutators::usage = "ExpandCommutators[expr] expands all delayed Comm and RawPComm tags using the AdS curvature rules.";
 ReduceAdS::usage = "ReduceAdS[expr] repeatedly applies the ordered pipeline: A cleanup, trace removal, Y' reductions, A cleanup, Div reductions, A cleanup, P.P reductions, A cleanup, Box reductions, A cleanup, trace removal.";
-ReduceAdSDiagnostics::usage = "ReduceAdSDiagnostics[expr] returns one-cycle and full-cycle stage diagnostics without using any Appendix-B correction.";
+ReduceAdSDiagnostics::usage = "ReduceAdSDiagnostics[expr] returns one-cycle and full-cycle stage diagnostics for the reducer pipeline.";
 
 ToYZPolynomial::usage = "ToYZPolynomial[expr] projects a reduced ordered expression to a commutative polynomial in y[i], z[i] plus diagnostic noncanonical heads yp, div, pp, box, tr, raw.";
 CanonicalQ::usage = "CanonicalQ[expr] is True iff ToYZPolynomial[expr] contains only y[i] and z[i] contractions.";
@@ -94,21 +105,14 @@ YpFarLeftPlacementWord::usage = "YpFarLeftPlacementWord[] is the local word -y2 
 YpFarLeftPlacementTest::usage = "YpFarLeftPlacementTest[] checks the local far-left Y' placement rule: -y2 y'3 z2 z3 -> y2 y3 z2 z3 - Dim Lambda z1 z2 z3.";
 
 ZWord::usage = "ZWord[i] gives the one-term expression z[i]=U[i+1].U[i-1].";
-DivYim1Word::usage = "DivYim1Word[i] gives the ordered local word Div_i y_{i-1}, used to test the divergence commutator against Appendix-A.15.";
+DivYim1Word::usage = "DivYim1Word[i] gives the ordered local word Div_i y_{i-1}, used to test divergence transport.";
 DivYim1Zim1ZiWord::usage = "DivYim1Zim1ZiWord[i] gives Div_i y_{i-1} z_{i-1} z_i, the local motif responsible for the B1 Div-stage curvature shift.";
-A15DivergenceTests::usage = "A15DivergenceTests[] returns local tests of Div_i reduction against the Appendix-A.15 divergence formula.";
+A15DivergenceTests::usage = "A15DivergenceTests[] returns local tests of Div_i reduction and curvature transport.";
 StageDeltaDiagnostics::usage = "StageDeltaDiagnostics[diag] converts ReduceAdSDiagnostics rows into stage-to-stage polynomial deltas.";
-B1V1PipelineExpected::usage = "B1V1PipelineExpected[i] is the V=1 Appendix-B.1 zero-identity polynomial with the package raw-sign convention; diagnostic only, not used by ReduceAdS.";
-B2V1PipelineExpected::usage = "B2V1PipelineExpected[i] is the V=1 Appendix-B.2 zero-identity polynomial with the package raw-sign convention; diagnostic only, not used by ReduceAdS.";
-B3V1PaperZero::usage = "B3V1PaperZero[i] is the V=1 Appendix-B.3 paper zero-identity polynomial LHS-RHS; diagnostic only.";
-B4V1PaperZero::usage = "B4V1PaperZero[i] is the V=1 Appendix-B.4 paper zero-identity polynomial LHS-RHS; diagnostic only.";
-B5V1PaperZero::usage = "B5V1PaperZero[i] is the V=1 Appendix-B.5 paper zero-identity polynomial LHS-RHS; diagnostic only.";
-B6V1PaperZero::usage = "B6V1PaperZero[i] is the V=1 Appendix-B.6 paper zero-identity polynomial LHS-RHS; diagnostic only.";
-B7V1PaperZero::usage = "B7V1PaperZero[i] is the V=1 Appendix-B.7 paper zero-identity polynomial LHS-RHS; diagnostic only.";
-B8V1PaperZero::usage = "B8V1PaperZero[i] is the V=1 Appendix-B.8 paper zero-identity polynomial LHS-RHS; diagnostic only.";
-B9V1PaperZero::usage = "B9V1PaperZero[i] is the V=1 Appendix-B.9 paper zero-identity polynomial LHS-RHS; diagnostic only.";
-B10V1PaperZero::usage = "B10V1PaperZero[i] is the V=1 Appendix-B.10 paper zero-identity polynomial LHS-RHS; diagnostic only.";
-PipelineDDICheck::usage = "PipelineDDICheck[\"B1\"|\"B2\", i] reduces the raw V=1 DDI through ReduceAdS and compares with the diagnostic Appendix-B V=1 polynomial. It does not alter the reducer output.";
+ZPowerSimplify::usage = "ZPowerSimplify[expr] performs formal algebraic simplification of z[i]^a z[i]^b powers, appropriate for polynomial/formal-vertex diagnostics.";
+SymbolicZPowers::usage = "SymbolicZPowers[] returns {Global`n1,Global`n2,Global`n3}.";
+DDIRawByKey::usage = "DDIRawByKey[\"B1\"|...|\"B10\", i, n] returns the raw ordered DDI expression.";
+DDIRaw::usage = "DDIRaw[k,i,n] is an alias for DDIRawByKey[k,i,n].";
 
 Options[ReduceAdS] = {
    "Lambda" -> \[Lambda]AdS,
@@ -128,7 +132,18 @@ Options[BasicReducerTests] = Options[ReduceAdS];
 Options[YpFarLeftPlacementTest] = Options[ReduceAdS];
 Options[A15DivergenceTests] = Options[ReduceAdS];
 Options[PPFarLeftPlacementTest] = Options[ReduceAdS];
-Options[PipelineDDICheck] = Options[ReduceAdS];
+Options[DDIRawByKey] = Options[ReduceAdS];
+Options[DDIRaw] = Options[ReduceAdS];
+Options[DDI1Raw] = Options[ReduceAdS];
+Options[DDI2Raw] = Options[ReduceAdS];
+Options[DDI3Raw] = Options[ReduceAdS];
+Options[DDI4Raw] = Options[ReduceAdS];
+Options[DDI5Raw] = Options[ReduceAdS];
+Options[DDI6Raw] = Options[ReduceAdS];
+Options[DDI7Raw] = Options[ReduceAdS];
+Options[DDI8Raw] = Options[ReduceAdS];
+Options[DDI9Raw] = Options[ReduceAdS];
+Options[DDI10Raw] = Options[ReduceAdS];
 Options[MakeTermFromContractions] = Options[ReduceAdS];
 Options[AsReducerExpression] = Options[ReduceAdS];
 Options[PipelineRun] = Options[ReduceAdS];
@@ -149,18 +164,8 @@ Options[StageReduce] = Options[ReduceAdS];
 Options[StagePipelineRun] = Options[ReduceAdS];
 Options[ReducerStageTestSuite] = Options[ReduceAdS];
 Options[BoxRightTailProbeTest] = Options[ReduceAdS];
-Options[B1V1PipelineExpected] = Options[ReduceAdS];
-Options[B2V1PipelineExpected] = Options[ReduceAdS];
-   Options[B3V1PaperZero] = Options[ReduceAdS];
-   Options[B4V1PaperZero] = Options[ReduceAdS];
-   Options[B5V1PaperZero] = Options[ReduceAdS];
-   Options[B6V1PaperZero] = Options[ReduceAdS];
-   Options[B7V1PaperZero] = Options[ReduceAdS];
-   Options[B8V1PaperZero] = Options[ReduceAdS];
-   Options[B9V1PaperZero] = Options[ReduceAdS];
-   Options[B10V1PaperZero] = Options[ReduceAdS];
 
-$AdSDDIReducerVersion = "v19-indexed-parser-stage-notebook";
+$AdSDDIReducerVersion = "v23-volume-layout-core";
 
 Begin["`Private`"];
 
@@ -190,7 +195,8 @@ installAdSReducerOptions[] := (
    Options[YpFarLeftPlacementTest] = Options[ReduceAdS];
    Options[A15DivergenceTests] = Options[ReduceAdS];
    Options[PPFarLeftPlacementTest] = Options[ReduceAdS];
-   Options[PipelineDDICheck] = Options[ReduceAdS];
+Options[DDIRawByKey] = Options[ReduceAdS];
+Options[DDIRaw] = Options[ReduceAdS];
 Options[MakeTermFromContractions] = Options[ReduceAdS];
 Options[AsReducerExpression] = Options[ReduceAdS];
 Options[PipelineRun] = Options[ReduceAdS];
@@ -211,16 +217,6 @@ Options[StageReduce] = Options[ReduceAdS];
 Options[StagePipelineRun] = Options[ReduceAdS];
 Options[ReducerStageTestSuite] = Options[ReduceAdS];
    Options[BoxRightTailProbeTest] = Options[ReduceAdS];
-   Options[B1V1PipelineExpected] = Options[ReduceAdS];
-   Options[B2V1PipelineExpected] = Options[ReduceAdS];
-   Options[B3V1PaperZero] = Options[ReduceAdS];
-   Options[B4V1PaperZero] = Options[ReduceAdS];
-   Options[B5V1PaperZero] = Options[ReduceAdS];
-   Options[B6V1PaperZero] = Options[ReduceAdS];
-   Options[B7V1PaperZero] = Options[ReduceAdS];
-   Options[B8V1PaperZero] = Options[ReduceAdS];
-   Options[B9V1PaperZero] = Options[ReduceAdS];
-   Options[B10V1PaperZero] = Options[ReduceAdS];
 );
 
 optionLookup[name_String, opts___Rule] := name /. Flatten[{opts, Options[ReduceAdS], defaultReduceAdSOptions[]}];
@@ -263,6 +259,7 @@ opKind[A[_, _]] := "A";
 opKind[Pmarked[_, _, _]] := "Pmarked";
 opKind[Comm[_, _, _, ___]] := "Comm";
 opKind[RawPComm[_, _, _, ___]] := "RawPComm";
+opKind[ZPow[_, _]] := "ZPow";
 opKind[_] := "Other";
 
 opField[U[i_, _]] := cyc[i];
@@ -271,6 +268,7 @@ opField[A[i_, _]] := cyc[i];
 opField[Pmarked[i_, _, _]] := cyc[i];
 opField[Comm[i_, _, _, ___]] := cyc[i];
 opField[RawPComm[i_, _, _, ___]] := cyc[i];
+opField[ZPow[i_, _]] := cyc[i];
 opField[_] := Missing["NoField"];
 
 opIndex[U[_, idx_]] := idx;
@@ -297,6 +295,7 @@ replaceBaseOp[op_, old_, new_] := Module[{k = opKind[op]},
       "Pmarked", setOpIndex[op, replaceIndexBase[opIndex[op], old, new]],
       "Comm", Comm[op[[1]], replaceIndexBase[op[[2]], old, new], replaceIndexBase[op[[3]], old, new], Sequence @@ Drop[List @@ op, 3]],
       "RawPComm", RawPComm[op[[1]], replaceIndexBase[op[[2]], old, new], replaceIndexBase[op[[3]], old, new], Sequence @@ Drop[List @@ op, 3]],
+      "ZPow", op,
       _, op
    ]
 ];
@@ -311,6 +310,7 @@ opIndices[A[_, idx_]] := {idx};
 opIndices[Pmarked[_, idx_, _]] := {idx};
 opIndices[Comm[_, mu_, nu_, ___]] := {mu, nu};
 opIndices[RawPComm[_, mu_, nu_, ___]] := {mu, nu};
+opIndices[ZPow[_, _]] := {};
 opIndices[_] := {};
 wordBases[word_List] := idxBase /@ Flatten[opIndices /@ word];
 
@@ -335,6 +335,7 @@ normalizeOp[A[i_, idx_], map_Association] := A[cyc[i], normalizeIndex[idx, map]]
 normalizeOp[Pmarked[i_, idx_, tag_], map_Association] := Pmarked[cyc[i], normalizeIndex[idx, map], tag];
 normalizeOp[Comm[i_, mu_, nu_, rest___], map_Association] := Comm[cyc[i], normalizeIndex[mu, map], normalizeIndex[nu, map], rest];
 normalizeOp[RawPComm[i_, mu_, nu_, rest___], map_Association] := RawPComm[cyc[i], normalizeIndex[mu, map], normalizeIndex[nu, map], rest];
+normalizeOp[ZPow[i_, n_], _Association] := ZPow[cyc[i], Simplify[n]];
 normalizeOp[other_, _Association] := other;
 
 normalizeWord[{}] := {};
@@ -398,15 +399,31 @@ $labelCounter = 0;
 newLabel[] := (++$labelCounter);
 newLabel[prefix_String] := prefix <> ToString[++$labelCounter];
 
-ZVertex[n_List] /; Length[n] == 3 := Flatten[
-   Table[
+ClearAll[integerZPowersQ, zPowFactor, zPowNonzeroQ, zPowHasUQ, pairedUFromZPow, lowerZPow];
+integerZPowersQ[n_List] := VectorQ[n, IntegerQ[#] && # >= 0 &];
+zPowNonzeroQ[n_] := Not[TrueQ[Simplify[n == 0]]];
+zPowFactor[i_Integer, n_] := If[zPowNonzeroQ[n], {ZPow[cyc[i], Simplify[n]]}, {}];
+lowerZPow[i_Integer, n_] := If[zPowNonzeroQ[Simplify[n - 1]], {ZPow[cyc[i], Simplify[n - 1]]}, {}];
+zPowHasUQ[ZPow[j_, n_], f_Integer] := zPowNonzeroQ[n] && MemberQ[{cp[j], cm[j]}, cyc[f]];
+zPowHasUQ[_, _Integer] := False;
+pairedUFromZPow[j_Integer, f_Integer, aidx_] := Which[
+   cyc[f] === cp[j], U[cm[j], Con[idxBase[aidx]]],
+   cyc[f] === cm[j], U[cp[j], Cov[idxBase[aidx]]],
+   True, Missing["NoUPairInZPow", j, f]
+];
+
+ZVertex[n_List] /; Length[n] == 3 := If[integerZPowersQ[n],
+   Flatten[
       Table[
-         With[{l = newLabel[]}, {U[cp[i], Cov[l]], U[cm[i], Con[l]]}],
-         {n[[i]]}
+         Table[
+            With[{l = newLabel[]}, {U[cp[i], Cov[l]], U[cm[i], Con[l]]}],
+            {n[[i]]}
+         ],
+         {i, 1, 3}
       ],
-      {i, 1, 3}
+      2
    ],
-   2
+   Flatten[Table[zPowFactor[i, n[[i]]], {i, 1, 3}], 1]
 ];
 
 $DDIOrderings = {"LowerThenUpper", "UpperThenLower", "InterleavedLowerUpper", "InterleavedUpperLower"};
@@ -453,10 +470,7 @@ B2Raw[i_Integer, zPowers_: {0, 0, 0}] := MakeDDI[
    zPowers
 ];
 
-(* Three-derivative Appendix-B raw representatives.
-   These are pure ordered antisymmetrisations.  No Appendix-B formula is
-   substituted into the reducer.  The names match the paper's Appendix-B
-   labels B.3--B.5. *)
+(* Three-derivative raw DDI representatives. *)
 
 B3Raw[i_Integer, zPowers_: {0, 0, 0}] := MakeDDI[
    {PSlot[i], PSlot[cp[i]], USlot[i], USlot[cm[i]]},
@@ -491,9 +505,7 @@ ThreeDerivativeDDIRaws[i_Integer : 1, zPowers_: {0, 0, 0}] := <|
    "B5" -> B5Raw[i, zPowers]
 |>;
 
-(* Four-derivative Appendix-B raw representatives, V(z) optional but the
-   example driver tests V=1.  These are still raw ordered antisymmetrisations;
-   Appendix-B formulae are used only by diagnostic comparisons. *)
+(* Four-derivative raw DDI representatives, with optional V(z). *)
 
 B6Raw[i_Integer, zPowers_: {0, 0, 0}] := MakeDDI[
    {PSlot[cm[i]], PSlot[i], USlot[i], USlot[cm[i]]},
@@ -545,6 +557,17 @@ FourDerivativeDDIRaws[i_Integer : 1, zPowers_: {0, 0, 0}] := <|
    "B10" -> B10Raw[i, zPowers]
 |>;
 
+DDI1Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B1Raw[i, zPowers];
+DDI2Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B2Raw[i, zPowers];
+DDI3Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B3Raw[i, zPowers];
+DDI4Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B4Raw[i, zPowers];
+DDI5Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B5Raw[i, zPowers];
+DDI6Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B6Raw[i, zPowers];
+DDI7Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B7Raw[i, zPowers];
+DDI8Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B8Raw[i, zPowers];
+DDI9Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B9Raw[i, zPowers];
+DDI10Raw[i_Integer : 1, zPowers_: {0, 0, 0}] := B10Raw[i, zPowers];
+
 
 (* ---------------------------------------------------------------------- *)
 (* A cleanup and trace removal                                             *)
@@ -560,28 +583,49 @@ hasTraceWordQ[word_List] := Module[{groups},
 RemoveTraces[expr_List, opts : OptionsPattern[]] := combine @ Select[combine[expr], Not[hasTraceWordQ[#[[2]]]] &];
 
 cleanATerm[Term[c_, word_List], opts___Rule] := Module[
-   {apos, pos, a, f, ai, prevU, upos, u, ui, wNoA, wSwap, wDel, cMetric, wMetric, d},
+   {apos, pos, a, f, ai, prevTargets, upos, target, u, ui, wNoA, wSwap,
+    wDel, cMetric, wMetric, d, zexp, zfield, paired, replacement, wMetricZ},
    apos = FirstPosition[word, _A, Missing["NoA"], {1}];
    If[apos === Missing["NoA"], Return[{Term[c, word]}]];
    pos = First[apos];
    a = word[[pos]]; f = opField[a]; ai = opIndex[a];
-   prevU = Select[Range[pos - 1], MatchQ[word[[#]], U[_, _]] && opField[word[[#]]] === f &];
-   If[prevU === {}, Return[{}]];
-   upos = Last[prevU];
-   u = word[[upos]]; ui = opIndex[u];
 
-   (* Branch 1: commute A one U_i-position further left. *)
+   (* Earlier objects through which A_i can act are either explicit U_i factors
+      or symbolic ZPow[j,n] blocks containing U_i.  The latter implements the
+      Leibniz rule A_i z_j^n -> n z_j^(n-1) times the partner U in z_j. *)
+   prevTargets = Select[Range[pos - 1],
+      (MatchQ[word[[#]], U[_, _]] && opField[word[[#]]] === f) || zPowHasUQ[word[[#]], f] &
+   ];
+   If[prevTargets === {}, Return[{}]];
+   upos = Last[prevTargets];
+   target = word[[upos]];
+
+   (* Branch 1: commute A one available U_i/ZPow position further left. *)
    wNoA = Delete[word, pos];
    wSwap = Insert[wNoA, a, upos];
 
-   (* Branch 2: metric contraction U_i.rho A_i.mu -> g_{rho mu}. *)
-   wDel = deletePositions[word, {pos, upos}];
-   d = optionLookup["Dim", opts];
-   If[sameIndexQ[ai, ui],
-      cMetric = c d; wMetric = wDel,
-      cMetric = c; wMetric = mergeBaseWord[wDel, idxBase[ui], idxBase[ai]]
+   If[MatchQ[target, U[_, _]],
+      u = target; ui = opIndex[u];
+      wDel = deletePositions[word, {pos, upos}];
+      d = optionLookup["Dim", opts];
+      If[sameIndexQ[ai, ui],
+         cMetric = c d; wMetric = wDel,
+         cMetric = c; wMetric = mergeBaseWord[wDel, idxBase[ui], idxBase[ai]]
+      ];
+      Return[Join[cleanATerm[Term[c, wSwap], opts], cleanATerm[Term[cMetric, wMetric], opts]]]
    ];
-   Join[cleanATerm[Term[c, wSwap], opts], cleanATerm[Term[cMetric, wMetric], opts]]
+
+   If[MatchQ[target, ZPow[_, _]],
+      {zfield, zexp} = List @@ target;
+      paired = pairedUFromZPow[zfield, f, ai];
+      If[Head[paired] === Missing, Return[cleanATerm[Term[c, wSwap], opts]]];
+      replacement = Join[lowerZPow[zfield, zexp], {paired}];
+      wMetricZ = Join[Take[word, upos - 1], replacement, Take[word, {upos + 1, pos - 1}], Drop[word, pos]];
+      cMetric = Simplify[c zexp];
+      Return[Join[cleanATerm[Term[c, wSwap], opts], cleanATerm[Term[cMetric, wMetricZ], opts]]]
+   ];
+
+   cleanATerm[Term[c, wSwap], opts]
 ];
 
 CleanA[expr_List, opts : OptionsPattern[]] := combine[Flatten[cleanATerm[#, opts] & /@ combine[expr]]];
@@ -610,8 +654,8 @@ expandOneComm[Term[c_, word_List], pos_Integer, opts___Rule] := Module[
    lambda = optionLookup["Lambda", opts];
 
    (* Eq. (3.4) ordering: U_i factors to the right of the commutator are moved left before inserting A_i U_i. *)
-   uSuffix = Select[suffix, MatchQ[#, U[_, _]] && opField[#] === f &];
-   restSuffix = Select[suffix, Not[MatchQ[#, U[_, _]] && opField[#] === f] &];
+   uSuffix = Select[suffix, (MatchQ[#, U[_, _]] && opField[#] === f) || zPowHasUQ[#, f] &];
+   restSuffix = Select[suffix, Not[(MatchQ[#, U[_, _]] && opField[#] === f) || zPowHasUQ[#, f]] &];
 
    direct1 = Term[-lambda c, Join[prefix, uSuffix, {A[f, mu], U[f, nu]}, restSuffix]];
    direct2 = Term[ lambda c, Join[prefix, uSuffix, {A[f, nu], U[f, mu]}, restSuffix]];
@@ -1110,13 +1154,16 @@ groupName[group_List] := Module[{uFields, pFields, aFields, pmFields, comms, f1,
    ]
 ];
 
-termProduct[Term[c_, word_List]] := Module[{groups},
+termProduct[Term[c_, word_List]] := Module[{zFactors, nonZ, groups},
    If[word === {}, Return[c]];
-   groups = GatherBy[word, idxBase[First[opIndices[#]]] &];
-   c Times @@ (groupName /@ groups)
+   zFactors = Times @@ Cases[word, ZPow[j_, n_] :> z[cyc[j]]^n];
+   nonZ = DeleteCases[word, _ZPow];
+   If[nonZ === {}, Return[c zFactors]];
+   groups = GatherBy[nonZ, idxBase[First[opIndices[#]]] &];
+   c zFactors Times @@ (groupName /@ groups)
 ];
 
-ToYZPolynomial[expr_List] := Simplify[Plus @@ (termProduct /@ combine[expr])];
+ToYZPolynomial[expr_List] := ZPowerSimplify[Plus @@ (termProduct /@ combine[expr])];
 CanonicalQ[expr_List] := FreeQ[ToYZPolynomial[expr], _yp | _div | _tr | _box | _pp | _up | _raw];
 
 (* ---------------------------------------------------------------------- *)
@@ -1563,13 +1610,11 @@ YpFarLeftPlacementTest[opts : OptionsPattern[]] := Module[
 
 
 (* ---------------------------------------------------------------------- *)
-(* informed local checks against Appendix-A.15 and DDI V=1 diagnostics      *)
+(* local reducer checks and stage probes                                    *)
 (* ---------------------------------------------------------------------- *)
 
 ClearAll[ZWord, DivYim1Word, DivYim1Zim1ZiWord, A15DivergenceTests,
-   PPFarLeftPlacementTest, StageDeltaDiagnostics, B1V1PipelineExpected, B2V1PipelineExpected,
-   B6V1PaperZero, B7V1PaperZero, B8V1PaperZero, B9V1PaperZero, B10V1PaperZero,
-   PipelineDDICheck];
+   PPFarLeftPlacementTest, StageDeltaDiagnostics];
 
 ZWord[i_Integer] := Block[{$labelCounter = 0}, With[{l = pairLabel[]},
    {Term[1, {U[cp[i], Cov[l]], U[cm[i], Con[l]]}]}
@@ -1595,10 +1640,10 @@ A15DivergenceTests[opts : OptionsPattern[]] := Module[
    {lambda = optionLookup["Lambda", opts], d = optionLookup["Dim", opts], cases, red, poly, expected},
    cases = Flatten[Table[
       {
-        <|"Test" -> "Div" <> ToString[i] <> " y" <> ToString[cm[i]] <> " -> -(d-1) lambda z" <> ToString[cp[i]],
+        <|"Test" -> "Div" <> ToString[i] <> " y" <> ToString[cm[i]] <> " transport",
           "Input" -> DivYim1Word[i],
           "Expected" -> -(d - 1) lambda z[cp[i]]|>,
-        <|"Test" -> "Div" <> ToString[i] <> " y" <> ToString[cm[i]] <> " z" <> ToString[cm[i]] <> " z" <> ToString[i] <> " -> -d lambda z1 z2 z3",
+        <|"Test" -> "Div" <> ToString[i] <> " y" <> ToString[cm[i]] <> " z" <> ToString[cm[i]] <> " z" <> ToString[i] <> " transport",
           "Input" -> DivYim1Zim1ZiWord[i],
           "Expected" -> -d lambda z[1] z[2] z[3]|>
       },
@@ -1637,118 +1682,6 @@ StageDeltaDiagnostics[diag_List] := Table[
      "Delta" -> Simplify[diag[[r]]["Polynomial"] - diag[[r - 1]]["Polynomial"]]|>,
    {r, 2, Length[diag]}
 ];
-
-B1V1PipelineExpected[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], im = cm[i], G},
-   mass[j_] := massValue[j, opts];
-   G = y[1] z[1] + y[2] z[2] + y[3] z[3];
-   Expand[-y[ii] z[ii] G + y[im] z[im] y[ip] z[ip]
-      + z[1] z[2] z[3] (mass[ii] - mass[ip] - mass[im] - 3 lambda)]
-];
-
-B2V1PipelineExpected[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], G},
-   mass[j_] := massValue[j, opts];
-   G = y[1] z[1] + y[2] z[2] + y[3] z[3];
-   Expand[(G - y[ii] z[ii])^2 + z[1] z[2] z[3] (2 mass[ii] + 6 lambda)]
-];
-
-(* Appendix-B.3--B.5 paper zero identities, specialised to V(z)=1.
-   These are diagnostics only: ReduceAdS never uses them.  Because raw
-   antisymmetrisation orientation can differ by an overall sign, PipelineDDICheck
-   reports both poly - paperZero and poly + paperZero for B3--B5. *)
-B3V1PaperZero[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], im = cm[i], G, lhs, rhs},
-   mass[j_] := massValue[j, opts];
-   G = y[1] z[1] + y[2] z[2] + y[3] z[3];
-   lhs = y[ii] y[im] (G - y[ii] z[ii]);
-   rhs = y[im] z[im] z[ip] (1/2 (mass[ii] + mass[im] - mass[ip]) + 6 lambda)
-       + 1/2 (mass[im] - mass[ii] - mass[ip]) y[ip] z[ip]^2
-       - y[ii] z[ii] z[ip] (mass[ii] + 2 lambda);
-   Expand[lhs - rhs]
-];
-
-B4V1PaperZero[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], im = cm[i], G, lhs, rhs},
-   mass[j_] := massValue[j, opts];
-   G = y[1] z[1] + y[2] z[2] + y[3] z[3];
-   lhs = y[ii] y[ip] (G - y[ii] z[ii]);
-   rhs = y[ip] z[ip] z[im] (1/2 (mass[ip] + mass[ii] - mass[im]) + 6 lambda)
-       + y[im] z[im]^2 (1/2 (mass[ip] - mass[ii] - mass[im]))
-       - y[ii] z[ii] z[im] (mass[ii] + 3 lambda);
-   Expand[lhs - rhs]
-];
-
-B5V1PaperZero[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], im = cm[i], G, lhs, rhs},
-   mass[j_] := massValue[j, opts];
-   G = y[1] z[1] + y[2] z[2] + y[3] z[3];
-   lhs = y[im] (G - y[ii] z[ii])^2;
-   rhs = y[im] z[1] z[2] z[3] (-2 mass[ii] - 4 lambda)
-       + 3 lambda y[ip] z[ip]^2 z[ii];
-   Expand[lhs - rhs]
-];
-
-(* Appendix-B.6--B.10 paper zero identities, specialised to V(z)=1.
-   These diagnostics are not used by ReduceAdS.  They are intentionally kept
-   outside the reducer so mismatches diagnose implementation/raw-order issues. *)
-B6V1PaperZero[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], im = cm[i], lhs, rhs, qmass},
-   mass[j_] := massValue[j, opts];
-   qmass = 1/4 (mass[ii]^2 + mass[ip]^2 + mass[im]^2)
-      - 1/2 (mass[ii] mass[ip] + mass[ii] mass[im] + mass[im] mass[ip]);
-   lhs = y[ii]^2 y[im] y[ip];
-   rhs = y[ii] y[im] z[im] (1/2 (mass[ip] - mass[im] - mass[ii]))
-       + y[ii] y[ip] z[ip] (1/2 (mass[im] - mass[ip] - mass[ii]) + lambda)
-       - y[ii]^2 z[ii] (mass[ii] + 2 lambda)
-       + z[ip] z[im] (qmass + (lambda/2) (mass[ii] - 3 mass[im] - 5 mass[ip]) - 5 lambda^2);
-   Expand[lhs - rhs]
-];
-
-B7V1PaperZero[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], im = cm[i], lhs, rhs, qmass},
-   mass[j_] := massValue[j, opts];
-   qmass = -1/4 (mass[ii]^2 + mass[im]^2 + mass[ip]^2)
-      + 1/2 (mass[ii] mass[im] + mass[ii] mass[ip] + mass[im] mass[ip]);
-   lhs = y[ii]^2 y[ip]^2;
-   rhs = y[ii] y[ip] z[im] (mass[ii] + mass[ip] - mass[im] + 10 lambda)
-       + z[im]^2 (qmass + 4 lambda mass[im]);
-   Expand[lhs - rhs]
-];
-
-B8V1PaperZero[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], im = cm[i], G, lhs, rhs},
-   mass[j_] := massValue[j, opts];
-   G = y[1] z[1] + y[2] z[2] + y[3] z[3];
-   lhs = y[ii] y[im]^2 (G - y[ii] z[ii]);
-   rhs = y[im] y[ip] z[ip]^2 (1/2 (mass[im] - mass[ip] - mass[ii]) + lambda)
-       + y[ii] y[im] z[ii] z[ip] (-mass[ii] - lambda)
-       + y[im]^2 z[ip] z[im] (1/2 (mass[ii] + mass[im] - mass[ip]) + 8 lambda)
-       + z[ii] z[ip]^2 ((lambda/2) (mass[ip] - mass[im] + 3 mass[ii]) + lambda^2);
-   Expand[lhs - rhs]
-];
-
-B9V1PaperZero[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], im = cm[i], G, lhs, rhs},
-   mass[j_] := massValue[j, opts];
-   G = y[1] z[1] + y[2] z[2] + y[3] z[3];
-   lhs = y[ii] y[ip]^2 (G - y[ii] z[ii]);
-   rhs = y[im] y[ip] z[im]^2 (1/2 (mass[ip] - mass[ii] - mass[im]) + 2 lambda)
-       - y[ii] y[ip] z[im] z[ii] (mass[ii] + 4 lambda)
-       + y[ip]^2 z[im] z[ip] (1/2 (mass[ii] + mass[ip] - mass[im]) + 9 lambda)
-       + z[im]^2 z[ii] ((lambda/2) (mass[ip] + 3 mass[ii] - mass[im]) + 7 lambda^2);
-   Expand[lhs - rhs]
-];
-
-B10V1PaperZero[i_Integer, opts : OptionsPattern[]] := Module[
-   {lambda = optionLookup["Lambda", opts], mass, ii = cyc[i], ip = cp[i], G, lhs, rhs},
-   mass[j_] := massValue[j, opts];
-   G = y[1] z[1] + y[2] z[2] + y[3] z[3];
-   lhs = y[ip]^2 (G - y[ii] z[ii])^2;
-   rhs = -y[ip]^2 z[1] z[2] z[3] (2 mass[ii] + 6 lambda);
-   Expand[lhs - rhs]
-];
-
 
 (* ---------------------------------------------------------------------- *)
 (* public stage-level test helpers                                          *)
@@ -1861,49 +1794,30 @@ ReducerStageTestSuite[opts : OptionsPattern[]] := Module[
 
 
 
-PipelineDDICheck[k_String, i_Integer : 1, opts : OptionsPattern[]] := Module[
-   {raw, red, poly, expected, diff, diffNeg},
-   raw = Switch[k,
-      "B1", B1Raw[i, {0, 0, 0}],
-      "B2", B2Raw[i, {0, 0, 0}],
-      "B3", B3Raw[i, {0, 0, 0}],
-      "B4", B4Raw[i, {0, 0, 0}],
-      "B5", B5Raw[i, {0, 0, 0}],
-      "B6", B6Raw[i, {0, 0, 0}],
-      "B7", B7Raw[i, {0, 0, 0}],
-      "B8", B8Raw[i, {0, 0, 0}],
-      "B9", B9Raw[i, {0, 0, 0}],
-      "B10", B10Raw[i, {0, 0, 0}],
-      _, Return[$Failed]
-   ];
-   red = ReduceAdS[raw, opts];
-   poly = ToYZPolynomial[red];
-   expected = Switch[k,
-      "B1", B1V1PipelineExpected[i, opts],
-      "B2", B2V1PipelineExpected[i, opts],
-      "B3", B3V1PaperZero[i, opts],
-      "B4", B4V1PaperZero[i, opts],
-      "B5", B5V1PaperZero[i, opts],
-      "B6", B6V1PaperZero[i, opts],
-      "B7", B7V1PaperZero[i, opts],
-      "B8", B8V1PaperZero[i, opts],
-      "B9", B9V1PaperZero[i, opts],
-      "B10", B10V1PaperZero[i, opts]
-   ];
-   diff = Simplify[poly - expected];
-   diffNeg = Simplify[poly + expected];
-   <|"Kind" -> k,
-     "i" -> i,
-     "RawTermCount" -> TermCount[raw],
-     "ReducedTermCount" -> TermCount[red],
-     "CanonicalQ" -> CanonicalQ[red],
-     "Polynomial" -> poly,
-     "ExpectedV1ZeroIdentityPolynomial" -> expected,
-     "PipelineMinusExpected" -> diff,
-     "PipelinePlusExpected" -> diffNeg,
-     "Matches" -> TrueQ[diff === 0],
-     "MatchesUpToOverallSign" -> TrueQ[diff === 0 || diffNeg === 0]|>
+(* ---------------------------------------------------------------------- *)
+(* formal z-power utilities and raw DDI lookup                              *)
+(* ---------------------------------------------------------------------- *)
+
+ClearAll[ZPowerSimplify, SymbolicZPowers, DDIRawByKey, DDIRaw];
+
+ZPowerSimplify[expr_] := Simplify[PowerExpand[Expand[expr]]];
+SymbolicZPowers[] := ToExpression /@ {"Global`n1", "Global`n2", "Global`n3"};
+
+DDIRawByKey[k_String, i_Integer : 1, n_List : {0, 0, 0}] := Switch[k,
+   "DDI1" | "B1", B1Raw[i, n],
+   "DDI2" | "B2", B2Raw[i, n],
+   "DDI3" | "B3", B3Raw[i, n],
+   "DDI4" | "B4", B4Raw[i, n],
+   "DDI5" | "B5", B5Raw[i, n],
+   "DDI6" | "B6", B6Raw[i, n],
+   "DDI7" | "B7", B7Raw[i, n],
+   "DDI8" | "B8", B8Raw[i, n],
+   "DDI9" | "B9", B9Raw[i, n],
+   "DDI10" | "B10", B10Raw[i, n],
+   _, $Failed
 ];
+
+DDIRaw[k_String, i_Integer : 1, n_List : {0, 0, 0}, opts : OptionsPattern[]] := DDIRawByKey[k, i, n];
 
 installAdSReducerOptions[];
 End[];
