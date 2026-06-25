@@ -151,17 +151,17 @@ The notebook makes use of the following:
 | `V2ads`             | The lower-derivative AdS correction ansatz for the two-derivative vertex.                                  |
 | `V2`                | The full two-derivative ansatz, including both `V2flat` and `V2ads`.                                       |
 | `dV2`               | The gauge variation of the two-derivative ansatz.                                                          |
-| `miRules`           | The mass-shell substitution rules for the `m_i` placeholders.                                              |
-| `nRules`            | The substitution rules relating the formal powers `n_i` to the spin labels in the two-derivative sector.   |
+| `miRules`           | The mass-shell substitution rules for the `mi` placeholders.                                              |
+| `nRules`            | The substitution rules relating the formal powers `ni` to the spin labels in the two-derivative sector.   |
 | `dV23yPart`         | The three-derivative part of the two-derivative gauge variation.                                           |
 | `dV21yPart`         | The one-derivative part of the two-derivative gauge variation.                                             |
-| `ruleYcubedAll`     | The DDI reduction rules used for cubic expressions in the `Y_i`.                                           |
+| `ruleYcubedAll`     | The DDI reduction rules used for cubic expressions in the `yi`.                                           |
 | `ruleYsqY`          | The DDI reduction rules used for the remaining two-derivative-sector terms.                                |
 | `dV2DDIs`           | The two-derivative gauge variation after the relevant DDI substitutions have been prepared.                |
 | `dV2DDIreduced`     | The final DDI-reduced form of the two-derivative gauge variation.                                          |
 | `V3`                | The full three-derivative ansatz, including its lower-derivative AdS correction terms.                     |
 | `dV3`               | The gauge variation of the three-derivative ansatz.                                                        |
-| `pRules`            | The substitution rules relating the formal powers `p_i` to the spin labels in the three-derivative sector. |
+| `pRules`            | The substitution rules relating the formal powers `pi` to the spin labels in the three-derivative sector. |
 | `dV34yPart`         | The four-derivative part of the three-derivative gauge variation.                                          |
 | `dV32ySimplif`      | The simplified two-derivative part of the three-derivative gauge variation.                                |
 | `dV30ySimplif`      | The simplified zero-derivative part of the three-derivative gauge variation.                               |
