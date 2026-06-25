@@ -371,3 +371,29 @@ ReducerStageTestSuite[opts]
 ```
 
 `CanonicalQ` follows Wolfram naming conventions for Boolean predicates (`NumberQ`, `MatrixQ`, etc.). It means the result has no unresolved `A`, `Comm`, `RawPComm`, `Pmarked`, traces, divergences, boxes, noncanonical `Y'`, or mixed `P.P` structures, and projects only to terminal `y[i]` and `z[i]` contractions.
+
+## Referencing
+
+If you use this repository, please cite both the accompanying paper and this code repository. Until a DOI is available, the repository may be cited using the GitHub URL.
+
+```bibtex
+@software{KingPomfretCode2026,
+  author       = {King, Freddie},
+  title        = {Code for Metric-like Cubic Vertices for Massless Bosonic Higher-Spin Fields in AdS3},
+  year         = {2026},
+  version      = {1.0.0},
+  url          = {https://github.com/fk260/ads3_higher_spin_cubic_vertices_gauge_variation_and_DDIs}
+}
+```
+
+## Contact
+
+Questions about the code, reproducibility, or the calculations in the accompanying paper can be directed to:
+
+**Freddie King**  
+`fk260@sussex.ac.uk`
+
+**Taylor Pomfret**
+`pomfret@mpa-garching.mpg.de`
+
+Please include enough detail to identify the relevant part of the repository, such as the file name, function name, notebook cell, or expression being checked.
