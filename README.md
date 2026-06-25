@@ -31,7 +31,7 @@ The Mathematica notebooks 3), 4) and Wolfram Language package 5) require Wolfram
 
 ### 1) `Gauge_Variation.py`
 
-This is the main file containing the infrastructure for automating the gauge variation algorithm set out in Section 3.2 of the paper. Note that the procedure is fully generalised and we do not use the specialised gauge variation operator (3.19) in the text - this is instead used in a separate file as a semi-independent check. This file also generates the DDIs in accordance with equation (3.21) of the paper. That is, we compute all DDI forms generated from mulitplying the over-antisymmetrised expressions by additional factors of Yi, keeping all such expressions whose total number of derivatives (Yi's) lies between two and four. These are further analysed in 
+This is the main file containing the infrastructure for automating the gauge variation algorithm set out in Section 3.2 of the paper. Note that the procedure is fully generalised and we do not use the specialised gauge variation operator (3.19) in the text - this is instead used in a separate file as a semi-independent check. This file also generates the DDIs in accordance with equation (3.21) of the paper. That is, we compute all DDI forms generated from mulitplying the over-antisymmetrised expressions by additional factors of Yi, keeping all such expressions whose total number of derivatives (Yi's) lies between two and four. These are further analysed in `AdS_DDIs_Analysis.py`
 
 Below is a dictionary for the translating the notation used to the paper to the notation used in the code:
 
