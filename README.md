@@ -37,8 +37,8 @@ Below is a dictionary for the translating the notation used to the paper to the 
 
 | Code notation | Paper notation | Meaning |
 |---|---|---|
-| `Y_i` | $Y_i$ | Basic derivative contraction. |
-| `Z_i` | $Z_i$ | Basic auxiliary-vector contraction. |
+| "Y1" | $Y_i$ | Basic derivative contraction. |
+| "Z" | $Z_i$ | Basic auxiliary-vector contraction. |
 | `P_i` | $\partial_{x_i}$ | Spacetime derivative acting on field $i$. |
 | `U_i` | $\partial_{a_i}$ | Auxiliary-vector derivative acting on field $i$. |
 | `a_i` | $a_i$ | Auxiliary variable for field $i$. |
