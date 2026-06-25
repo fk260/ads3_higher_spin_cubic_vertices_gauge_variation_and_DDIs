@@ -52,7 +52,7 @@ Below is a dictionary for the translating the notation used to the paper to the 
 | `p1`, `p2`, `p3` | $p_1$, $p_2$, $p_3$ | Formal powers of `Z1`, `Z2`, `Z3` used for the three-derivative vertex sector. |
 | `D_z1`, `D_z2`, `D_z3` | $\partial_{z_1}$, $\partial_{z_2}$, $\partial_{z_3}$ | Differential-operator notation used when rewriting powers such as `n1`, `n2`, `n3` as `Z1*D_z1`, `Z2*D_z2`, `Z3*D_z3`. |
 | `m1`, `m2`, `m3` | $m_1$, $m_2$, $m_3$ | AdS Mass-shell/d'Alembertian placeholders. |
-| `A`, `B`, `C` | Ansatz coefficients | Coefficients of lower-derivative AdS correction terms in some test expressions. |
+| `A`, `B`, `C` | $\alpha$, $\alpha_1$, $\alpha_2$, $\alpha_3$ | Ansatz coefficients of lower-derivative AdS correction terms in some test expressions. |
 
 
 
