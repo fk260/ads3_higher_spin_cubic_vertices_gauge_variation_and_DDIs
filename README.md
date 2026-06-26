@@ -206,7 +206,7 @@ To run the check, open the notebook in Mathematica and evaluate all cells. The f
 
 ### 5) `AdSDDIReducer.wl`
 
-This package can be found in the folder `ads_ddi_reducer`, whose goal is to perform AdS reduction in Mathemtica. The folder itself contains a Wolfram Language implementation of an ordered-operator reducer for three-dimensional AdS dimension-dependent identities (DDIs) acting on three higher-spin fields.
+This package can be found in the folder `ads_ddi_reducer`, whose goal is to perform AdS reduction in Mathematica. The folder itself contains a Wolfram Language implementation of an ordered-operator reducer for three-dimensional AdS dimension-dependent identities (DDIs) acting on three higher-spin fields.
 
 The core reducer works with ordered noncommuting derivative operators `P[i, idx]`, `U[i, idx]`, and curvature-generated `A[i, idx]`. It reduces raw antisymmetrised DDI expressions through the pipeline
 
